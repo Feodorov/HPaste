@@ -628,7 +628,7 @@ class Query[T <: HbaseTable[T, R, RR], R, RR <: HRow[T, R]] private(
    * @return
    */
   def executeMap(tableName: String = table.tableName, ttl: Int = 30, skipCache: Boolean = true, returnEmptyRows:Boolean=false): Map[R, RR] = {
-    if (keys.isEmpty) return Map.empty[R, RR] // don't get all started with nothing to do
+    require(!keys.isEmpty, "executeMap assumes that you have called withKeys() or withKey().  If you are trying to do a scan, you should call Scan()")
 
     // init our result map and give it a hint of the # of keys we have
     val resultMap = mutable.Map[R, RR]()
