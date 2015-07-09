@@ -6,13 +6,15 @@ organizationName := "Gravity"
 
 organizationHomepage := Some(url("http://www.gravity.com"))
 
-version := "0.1.27-CDH5.3.1"
+version := "0.1.28-CDH5.3.1"
 
 licenses := Seq("Apache2" -> url("http://www.apache.org/licenses/LICENSE-2.0.txt"))
 
 homepage := Some(url("https://github.com/GravityLabs/HPaste"))
 
 scalaVersion := "2.11.6"
+
+crossScalaVersions := List("2.11.6", "2.10.5")
 
 scalacOptions ++= Seq(
   "-deprecation",
